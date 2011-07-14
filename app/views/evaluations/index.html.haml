@@ -1,0 +1,8 @@
+- if @evaluations.empty?
+  You have no evaluations.
+- else
+  %ul#evaluations
+    - @evaluations.each do |evaluation|
+      %li= link_to evaluation.name, evaluation_path(evaluation)
+
+= link_to 'Create an evaluation', new_evaluation_path

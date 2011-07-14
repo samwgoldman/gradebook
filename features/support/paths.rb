@@ -11,11 +11,11 @@ module NavigationHelpers
     when /^the home\s?page$/
       '/'
 
-    # Add more mappings here.
-    # Here is an example that pulls values out of the Regexp:
-    #
-    #   when /^(.*)'s profile page$/i
-    #     user_profile_path(User.find_by_login($1))
+    when /^the (.*) page for "([^"]*)"$/
+      resource_class = $1.classify.constantize
+      resource = resource_class.find_by_name($2)
+      path_components = $1.split(/\s+/)
+      self.send(path_components.push('path').join('_').to_sym, resource)
 
     else
       begin

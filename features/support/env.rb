@@ -4,6 +4,7 @@
 # instead of editing this one. Cucumber will automatically load all features/**/*.rb
 # files.
 
+require 'cover_me'
 require 'rubygems'
 require 'spork'
  

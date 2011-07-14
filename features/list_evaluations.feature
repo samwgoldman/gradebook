@@ -1,6 +1,6 @@
 Feature: User can list evaluations
   In order to find my evaluations
-  As a data admin
+  As a user
   I want to view a list of my evaluations
   
   Scenario: User is prompted to create new evaluation if none exist

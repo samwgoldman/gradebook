@@ -3,6 +3,10 @@ Feature: User can list evaluations
   As a user
   I want to view a list of my evaluations
   
+  Scenario: User sees the header for the page
+    When  I am on the evaluations page
+    Then  I should see "Evaluations"
+
   Scenario: User is prompted to create new evaluation if none exist
     When  I am on the evaluations page
     Then  I should see "You have no evaluations."

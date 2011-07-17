@@ -1,15 +1,16 @@
-= flash[:alert]
-= @evaluation.errors.inspect
+%section.new_evaluation
 
-= form_for @evaluation do |f|
-  %p
-    = f.label :name
-    = f.text_field :name
+  = flash[:alert]
 
-  %ul#criteria
-  = link_to_add_fields('Add Criterion', f, :criteria)
+  = form_for @evaluation do |f|
+    %p
+      = f.label :name
+      = f.text_field :name
 
-  %p
-    = f.submit 'Save Evaluation'
-    or
-    = link_to 'Cancel', evaluations_path
+    %ul#criteria
+    = link_to_add_fields('Add Criterion', f, :criteria)
+
+    %p
+      = f.submit 'Save Evaluation'
+      or
+      = link_to 'Cancel', evaluations_path

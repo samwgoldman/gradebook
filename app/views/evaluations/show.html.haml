@@ -1,7 +1,8 @@
-%header= @evaluation.name
+%section[@evaluation]
+  %h1= @evaluation.name
 
-%ul#criteria
-  - @evaluation.criteria.each do |criterion|
-    %li= criterion.prompt
+  %ul#criteria
+    - @evaluation.criteria.each do |criterion|
+      %li= criterion.prompt
 
-= link_to 'Back to Evaluations', evaluations_path
+  = link_to 'Back to Evaluations', evaluations_path

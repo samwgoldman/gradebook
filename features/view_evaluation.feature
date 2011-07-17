@@ -5,11 +5,13 @@ Feature: User can view an evaluation
 
   Background:
     Given an evaluation "eval" exists with name: "The Personality Defect Test"
+    And   a criterion exists with prompt: "What is your quest?", evaluation: evaluation "eval"
     And   a criterion exists with prompt: "What is your favorite color?", evaluation: evaluation "eval"
     When  I am on the evaluation page for "The Personality Defect Test"
 
   Scenario: User can see information about an evaluation
     Then  I should see "The Personality Defect Test"
+    And   I should see "What is your quest?"
     And   I should see "What is your favorite color?"
 
   Scenario: User can navigate back to the evaluations index page

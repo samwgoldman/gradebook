@@ -10,10 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110714062357) do
+ActiveRecord::Schema.define(:version => 20110716233558) do
+
+  create_table "criteria", :force => true do |t|
+    t.integer  "evaluation_id", :null => false
+    t.string   "prompt",        :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "criteria", ["evaluation_id"], :name => "index_criteria_on_evaluation_id"
 
   create_table "evaluations", :force => true do |t|
-    t.string   "name"
+    t.string   "name",       :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

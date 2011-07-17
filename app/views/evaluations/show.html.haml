@@ -1,3 +1,7 @@
-= @evaluation.name
+%header= @evaluation.name
+
+%ul#criteria
+  - @evaluation.criteria.each do |criterion|
+    %li= criterion.prompt
 
 = link_to 'Back to Evaluations', evaluations_path

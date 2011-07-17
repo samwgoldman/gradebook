@@ -26,10 +26,11 @@ group :test, :development do
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'factory_girl_rails'
   gem 'rspec-rails'
-  gem 'shoulda-matchers'
   gem 'cucumber-rails'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'spork'
   gem 'cover_me'
+  gem 'remarkable_activerecord', '~> 4.0.0.alpha2'
+  gem 'pickle'
 end

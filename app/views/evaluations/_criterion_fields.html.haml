@@ -1,3 +1,7 @@
-%li
-  = f.label :prompt
-  = f.text_field :prompt
+%li.criterion
+  %p
+    = f.label :prompt
+    = f.text_field :prompt
+  %p
+    = f.check_box :_destroy
+    = f.label :_destroy, 'Remove Criterion'

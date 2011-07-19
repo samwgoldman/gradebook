@@ -29,6 +29,13 @@ Feature: User can edit an evaluation
     When  I go to the evaluation page for "The Personality Defect Test"
     Then  I should see "What is your favorite color?"
 
+  Scenario: User can remove criteria
+    When  I remove the criterion with prompt "What is your quest?"
+    And   I press "Save Evaluation"
+    Then  I should see "Evaluation updated successfully"
+    When  I go to the evaluation page for "The Personality Defect Test"
+    Then  I should not see "What is your quest?"
+
   Scenario: User can see feedback on invalid submissions
     When  I fill in "Name" with ""
     And   I press "Save Evaluation"

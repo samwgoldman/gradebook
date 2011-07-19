@@ -10,3 +10,5 @@ en:
       update:
         notice: "%{resource_name} updated successfully."
         alert: "%{resource_name} could not be updated due to errors."
+      destroy:
+        notice: "%{resource_name} deleted successfully."

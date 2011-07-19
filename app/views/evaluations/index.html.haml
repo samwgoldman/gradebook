@@ -15,6 +15,8 @@
         - @evaluations.each do |evaluation|
           %tr
             %td= link_to evaluation.name, evaluation_path(evaluation)
-            %td= link_to 'Edit Evaluation', edit_evaluation_path(evaluation)
+            %td
+              = link_to 'Edit Evaluation', edit_evaluation_path(evaluation)
+              = link_to 'Delete Evaluation', evaluation_path(evaluation), :method => :delete
 
   = link_to 'Create an evaluation', new_evaluation_path

@@ -15,7 +15,7 @@ Feature: User can create an evaluation
 
   Scenario: User can see feedback on invalid submissions
     When  I press "Save Evaluation"
-    And   I should see "Evaluation could not be saved due to errors."
+    Then  I should see "Evaluation could not be saved due to errors."
 
   Scenario: User can cancel creation
     When  I follow "Cancel"

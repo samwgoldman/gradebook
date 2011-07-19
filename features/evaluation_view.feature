@@ -4,20 +4,21 @@ Feature: User can view an evaluation
   I want to be able to view one of his or her evaluations
 
   Background:
-    Given an evaluation "eval" exists with name: "The Personality Defect Test"
-    And   a criterion exists with prompt: "What is your quest?", evaluation: evaluation "eval"
-    And   a criterion exists with prompt: "What is your favorite color?", evaluation: evaluation "eval"
+    Given an evaluation named "The Personality Defect Test" with the following criteria:
+      | prompt                       |
+      | What is your quest?          |
+      | What is your favorite color? |
     When  I am on the evaluation page for "The Personality Defect Test"
 
   Scenario: User can see information about an evaluation
-    Then  I should see "The Personality Defect Test"
+    Then  the page title should be "The Personality Defect Test"
     And   I should see "What is your quest?"
     And   I should see "What is your favorite color?"
 
-  Scenario: User can navigate to the edit evaluation page
+  Scenario: User can navigate to edit the evaluation
     When  I follow "Edit Evaluation"
     Then  I should be on the edit evaluation page for "The Personality Defect Test"
 
-  Scenario: User can navigate back to the evaluations index page
+  Scenario: User can navigate back to list evaluations
     When  I follow "Back to Evaluations"
     Then  I should be on the evaluations page

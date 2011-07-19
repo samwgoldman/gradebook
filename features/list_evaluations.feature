@@ -37,3 +37,11 @@ Feature: User can list evaluations
     When  I am on the evaluations page
     And   I follow "The Personality Defect Test"
     Then  I should be on the evaluation page for "The Personality Defect Test"
+
+  Scenario: User can navigate to the evaluation edit page
+    Given the following evaluations exist:
+      | name                        |
+      | The Personality Defect Test |
+    When  I am on the evaluations page
+    And   I follow "Edit Evaluation"
+    Then  I should be on the edit evaluation page for "The Personality Defect Test"

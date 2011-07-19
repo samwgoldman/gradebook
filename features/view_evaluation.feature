@@ -14,6 +14,10 @@ Feature: User can view an evaluation
     And   I should see "What is your quest?"
     And   I should see "What is your favorite color?"
 
+  Scenario: User can navigate to the edit evaluation page
+    When  I follow "Edit Evaluation"
+    Then  I should be on the edit evaluation page for "The Personality Defect Test"
+
   Scenario: User can navigate back to the evaluations index page
     When  I follow "Back to Evaluations"
     Then  I should be on the evaluations page

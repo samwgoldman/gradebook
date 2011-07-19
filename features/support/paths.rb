@@ -12,9 +12,10 @@ module NavigationHelpers
       '/'
 
     when /^the (.*) page for "([^"]*)"$/
-      resource_class = $1.classify.constantize
-      resource = resource_class.find_by_name($2)
+      resource_name = $2
       path_components = $1.split(/\s+/)
+      resource_class = path_components.last.classify.constantize
+      resource = resource_class.find_by_name(resource_name)
       self.send(path_components.push('path').join('_').to_sym, resource)
 
     else

@@ -25,8 +25,8 @@ Feature: User can create an evaluation
   @javascript
   Scenario: User can add criteria to an evalution
     When  I fill in "Name" with "The Personality Defect Test"
-    And   I follow "Add Criterion"
-    And   I fill in "Prompt" with "What is your favorite color?"
+    When  I add a criterion with prompt "What is your favorite color?"
     And   I press "Save Evaluation"
-    And   I go to the evaluation page for "The Personality Defect Test"
+    Then  I should see "Evaluation saved successfully"
+    When  I go to the evaluation page for "The Personality Defect Test"
     Then  I should see "What is your favorite color?"

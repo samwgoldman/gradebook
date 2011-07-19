@@ -7,3 +7,6 @@ en:
       create:
         notice: "%{resource_name} saved successfully."
         alert: "%{resource_name} could not be saved due to errors."
+      update:
+        notice: "%{resource_name} updated successfully."
+        alert: "%{resource_name} could not be updated due to errors."

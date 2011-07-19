@@ -1,0 +1,15 @@
+= form_for @evaluation do |f|
+  %p
+    = f.label :name
+    = f.text_field :name
+
+  %ul#criteria
+    = f.fields_for :criteria do |f|
+      = render 'criterion_fields', :f => f
+
+  = link_to_add_fields('Add Criterion', f, :criteria)
+
+  %p
+    = f.submit 'Save Evaluation'
+    or
+    = link_to 'Cancel', evaluations_path

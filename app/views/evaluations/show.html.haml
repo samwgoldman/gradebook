@@ -5,4 +5,5 @@
     - @evaluation.criteria.each do |criterion|
       %li= criterion.prompt
 
+  = link_to 'Edit Evaluation', edit_evaluation_path(@evaluation)
   = link_to 'Back to Evaluations', evaluations_path

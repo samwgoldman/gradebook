@@ -3,7 +3,6 @@ Feature: User can delete evaluations
   As a user
   I want to be able to delete evaluations
 
-  @wip
   Scenario: User can delete evaluations
     Given the following evaluations exist:
       | name                        |

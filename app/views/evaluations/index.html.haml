@@ -1,10 +1,8 @@
 %section.evaluations
   %h1 Evaluations
 
-  = flash[:notice]
-
   - if @evaluations.empty?
-    You have no evaluations.
+    %p You have no evaluations.
   - else
     %table#evaluations
       %thead

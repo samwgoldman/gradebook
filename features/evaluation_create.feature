@@ -40,3 +40,12 @@ Feature: User can create an evaluation
     And   I press "Save Evaluation"
     And   I go to the evaluation page for "The Personality Defect Test"
     Then  I should not see "What is your favorite color?"
+
+  @javascript
+  Scenario: User can add alternatives
+    When  I fill in "Name" with "The Personality Defect Test"
+    And   I add a criterion with prompt "What is your favorite color?"
+    And   I add an alternative with label "Red"
+    And   I press "Save Evaluation"
+    And   I go to the evaluation page for "The Personality Defect Test"
+    Then  I should see "Red"

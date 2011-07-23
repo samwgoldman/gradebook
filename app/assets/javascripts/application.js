@@ -6,5 +6,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require add_remove_fields
+//= require nested_form
 //= require_tree .

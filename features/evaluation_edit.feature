@@ -45,6 +45,7 @@ Feature: User can edit an evaluation
     And   I go to the evaluation page for "The Personality Defect Test"
     Then  I should see "What is your favorite color?"
 
+  @javascript
   Scenario: User can remove criteria
     When  I remove the criterion with prompt "What is your quest?"
     And   I press "Save Evaluation"

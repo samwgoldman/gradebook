@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.0.rc4'
 gem 'inherited_resources'
+gem 'nested_form', :git => 'https://github.com/ryanb/nested_form'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -28,6 +29,7 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'cucumber-rails'
   gem 'capybara'
+  gem 'launchy'
   gem 'database_cleaner'
   gem 'spork'
   gem 'cover_me'

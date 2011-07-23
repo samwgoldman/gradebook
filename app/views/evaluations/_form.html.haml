@@ -1,13 +1,11 @@
-= form_for @evaluation do |f|
+= nested_form_for @evaluation do |f|
   %p
     = f.label :name
     = f.text_field :name
 
-  %ul#criteria
-    = f.fields_for :criteria do |f|
-      = render 'criterion_fields', :f => f
-
-  = link_to_add_fields('Add Criterion', f, :criteria)
+  .criteria
+    = f.fields_for :criteria
+    = f.link_to_add 'Add Criterion', :criteria
 
   %p
     = f.submit 'Save Evaluation'

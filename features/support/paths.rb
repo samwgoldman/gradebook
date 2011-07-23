@@ -16,6 +16,7 @@ module NavigationHelpers
       path_components = $1.split(/\s+/)
       resource_class = path_components.last.classify.constantize
       resource = resource_class.find_by_name(resource_name)
+      assert resource, 'Could not find resource.'
       self.send(path_components.push('path').join('_').to_sym, resource)
 
     else

@@ -1,9 +1,13 @@
 %section[@evaluation]
   %h1= @evaluation.name
 
-  %ul#criteria
+  %ul.criteria
     - @evaluation.criteria.each do |criterion|
-      %li= criterion.prompt
+      %li
+        %p= criterion.prompt
+        %ul.alternatives
+          - criterion.alternatives.each do |alternative|
+            %li= alternative.label
 
   = link_to 'Edit Evaluation', edit_evaluation_path(@evaluation)
   = link_to 'Back to Evaluations', evaluations_path

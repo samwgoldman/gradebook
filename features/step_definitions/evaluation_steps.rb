@@ -1,18 +1,3 @@
-Given /^an evaluation "([^"]*)" with the following criteria:$/ do |evaluation_name, criteria|
-  Given %{an evaluation "eval" exists with name: "#{evaluation_name}"}
-  criteria.hashes.each do |criterion|
-    And %{a criterion exists with prompt: "#{criterion[:prompt]}", evaluation: evaluation "eval"}
-  end
-end
-
-Given /^the criterion "([^"]*)" has the following alternatives:$/ do |criterion_prompt, alternatives|
-  criterion = Criterion.find_by_prompt(criterion_prompt)
-  assert criterion, "Could not find criterion with prompt: #{criterion_prompt}"
-  alternatives.hashes.each do |alternative|
-    criterion.alternatives.create(alternative)
-  end
-end
-
 When /^I add a criterion "([^"]*)"$/ do |prompt|
   click_link 'Add Criterion'
   criteria = page.all('.criteria > .fields')

@@ -5,3 +5,7 @@ end
 Factory.define(:criterion) do |f|
   f.sequence(:prompt) { |n| "Criterion #{n}" }
 end
+
+Factory.define(:alternative) do |f|
+  f.sequence(:label) { |n| "Alternative #{n}" }
+end

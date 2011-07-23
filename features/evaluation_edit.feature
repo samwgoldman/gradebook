@@ -4,17 +4,12 @@ Feature: User can edit an evaluation
   I want to be able to edit evaluations
 
   Background:
-    Given an evaluation "The Personality Defect Test" with the following criteria:
-      | prompt                       |
-      | What is your quest?          |
-      | What is your favorite color? |
-    And   the criterion "What is your quest?" has the following alternatives:
-      | label             |
-      | To seek the grail |
-    And   the criterion "What is your favorite color?" has the following alternatives:
-      | label     |
-      | Red       |
-      | No, blue! |
+    Given an evaluation exists with name: "The Personality Defect Test"
+    And   a criterion exists with prompt: "What is your quest?", evaluation: the evaluation
+    And   a criterion exists with prompt: "What is your favorite color?", evaluation: the evaluation
+    And   an alternative exists with label: "To seek the grail", criterion: the 1st criterion
+    And   an alternative exists with label: "Red", criterion: the 2nd criterion
+    And   an alternative exists with label: "Blue", criterion: the 2nd criterion
     When  I am on the edit evaluation page for "The Personality Defect Test"
 
   Scenario: User sees the header for the page

@@ -4,7 +4,7 @@ Feature: User can edit an evaluation
   I want to be able to edit evaluations
 
   Background:
-    Given an evaluation named "The Personality Defect Test" with the following criteria:
+    Given an evaluation "The Personality Defect Test" with the following criteria:
       | prompt                       |
       | What is your quest?          |
       | What is your favorite color? |
@@ -47,14 +47,14 @@ Feature: User can edit an evaluation
 
   @javascript
   Scenario: User can add criteria
-    When  I add a criterion with prompt "What is your name?"
+    When  I add a criterion "What is your name?"
     And   I press "Save Evaluation"
     And   I go to the evaluation page for "The Personality Defect Test"
     Then  I should see "What is your name?"
 
   @javascript
   Scenario: User can remove criteria
-    When  I remove the criterion with prompt "What is your quest?"
+    When  I remove the criterion "What is your quest?"
     And   I press "Save Evaluation"
     And   I go to the evaluation page for "The Personality Defect Test"
     Then  I should not see "What is your quest?"
@@ -62,14 +62,14 @@ Feature: User can edit an evaluation
 
   @javascript
   Scenario: User can add alternatives
-    When  I add an alternative with label "Purple"
+    When  I add an alternative "Purple"
     And   I press "Save Evaluation"
     And   I go to the evaluation page for "The Personality Defect Test"
     Then  I should see "Purple"
 
   @javascript
   Scenario: User can remove alternatives
-    When  I remove the alternative with label "Red"
+    When  I remove the alternative "Red"
     And   I press "Save Evaluation"
     And   I go to the evaluation page for "The Personality Defect Test"
     Then  I should not see "Red"

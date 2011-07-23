@@ -4,7 +4,7 @@ Feature: User can view an evaluation
   I want to be able to view one of his or her evaluations
 
   Background:
-    Given an evaluation named "The Personality Defect Test" with the following criteria:
+    Given an evaluation "The Personality Defect Test" with the following criteria:
       | prompt                       |
       | What is your quest?          |
       | What is your favorite color? |

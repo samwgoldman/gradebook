@@ -5,10 +5,18 @@ Given /^an evaluation named "([^"]*)" with the following criteria:$/ do |evaluat
   end
 end
 
+Given /^the criterion "([^"]*)" has the following alternatives:$/ do |criterion_prompt, alternatives|
+  criterion = Criterion.find_by_prompt(criterion_prompt)
+  assert criterion, "Could not find criterion with prompt: #{criterion_prompt}"
+  alternatives.hashes.each do |alternative|
+    criterion.alternatives.create(alternative)
+  end
+end
+
 When /^I add a criterion with prompt "([^"]*)"$/ do |prompt|
   click_link 'Add Criterion'
-  fields = find(:xpath, '//node()[contains(@class, "criteria")]/node()[contains(@class, "fields") and last()]')
-  fields.fill_in 'Prompt', :with => prompt
+  criteria = page.all('.criteria > .fields')
+  criteria.last.fill_in 'Prompt', :with => prompt
 end
 
 When /^I remove the criterion with prompt "([^"]*)"$/ do |prompt|
@@ -18,14 +26,16 @@ When /^I remove the criterion with prompt "([^"]*)"$/ do |prompt|
   fields.click_link 'Remove Criterion'
 end
 
-When /^I add and remove a criterion with prompt "([^"]*)"$/ do |prompt|
-  When %{I add a criterion with prompt "#{prompt}"}
-  And  %{I remove the criterion with prompt "#{prompt}"}
+When /^I add an alternative with label "([^"]*)"$/ do |label|
+  criteria = page.all('.criteria > .fields')
+  criteria.last.click_link 'Add Alternative'
+  alternatives = criteria.last.all('.alternatives > .fields')
+  alternatives.last.fill_in 'Label', :with => label
 end
 
-When /^I add an alternative with label "([^"]*)"$/ do |label|
-  criterion_fields = find(:xpath, '//node()[contains(@class, "criteria")]/node()[contains(@class, "fields") and last()]') 
-  criterion_fields.click_link 'Add Alternative'
-  fields = criterion_fields.find(:xpath, 'node()[contains(@class, "alternatives") and last()]/node()[contains(@class, "fields") and last()]')
-  fields.fill_in 'Label', :with => label
+When /^I remove the alternative with label "([^"]*)"$/ do |label|
+  input = page.all(:xpath, XPath::HTML.field('Label')).find { |input| input.value == label }
+  assert input, "Could not find alternative with label: #{label}"
+  fields = input.find(:xpath, 'ancestor::node()[contains(@class, "fields")]')
+  fields.click_link 'Remove Alternative'
 end

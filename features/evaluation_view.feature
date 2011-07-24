@@ -10,7 +10,7 @@ Feature: User can view an evaluation
     And   an alternative exists with label: "To seek the grail", criterion: the 1st criterion
     And   an alternative exists with label: "Red", criterion: the 2nd criterion
     And   an alternative exists with label: "Blue", criterion: the 2nd criterion
-    When  I am on the evaluation page for "The Personality Defect Test"
+    When  I am on the evaluation's page
 
   Scenario: User can see information about an evaluation
     Then  the page title should be "The Personality Defect Test"
@@ -22,7 +22,7 @@ Feature: User can view an evaluation
 
   Scenario: User can navigate to edit the evaluation
     When  I follow "Edit Evaluation"
-    Then  I should be on the edit evaluation page for "The Personality Defect Test"
+    Then  I should be on the evaluation's edit page
 
   Scenario: User can navigate back to list evaluations
     When  I follow "Back to Evaluations"

@@ -18,13 +18,6 @@ Feature: User can create an evaluation
     When  I press "Save Evaluation"
     Then  I should see "Evaluation could not be saved due to errors."
 
-  Scenario: User can create an evaluation
-    When  I fill in "Name" with "The Personality Defect Test"
-    And   I press "Save Evaluation"
-    Then  I should see "Evaluation saved successfully."
-    When  I go to the evaluations page
-    Then  I should see "The Personality Defect Test"
-
   @javascript
   Scenario: User can add criteria
     When  I fill in "Name" with "The Personality Defect Test"
@@ -34,12 +27,13 @@ Feature: User can create an evaluation
     And   I add an alternative "Red"
     And   I add an alternative "No, blue!"
     And   I press "Save Evaluation"
-    And   I go to the evaluation page for "The Personality Defect Test"
-    Then  I should see "What is your quest?"
-    And   I should see "To seek the grail"
-    And   I should see "What is your favorite color?"
-    And   I should see "Red"
-    And   I should see "No, blue!"
+    Then  I should see "Evaluation saved successfully."
+    And   the evaluation should exist with name: "The Personality Defect Test"
+    And   a criterion should exist with prompt: "What is your quest?", evaluation: the evaluation
+    And   a criterion should exist with prompt: "What is your favorite color?", evaluation: the evaluation
+    And   an alternative should exist with label: "To seek the grail", criterion: the 1st criterion
+    And   an alternative should exist with label: "Red", criterion: the 2nd criterion
+    And   an alternative should exist with label: "No, blue!", criterion: the 2nd criterion
 
   @javascript
   Scenario: User can remove criteria
@@ -49,18 +43,7 @@ Feature: User can create an evaluation
     And   I add an alternative "No, blue!"
     And   I remove the criterion "What is your favorite color?"
     And   I press "Save Evaluation"
-    And   I go to the evaluation page for "The Personality Defect Test"
-    Then  I should not see "What is your favorite color?"
-    And   I should not see "Red"
-    And   I should not see "No, blue!"
-
-  @javascript
-  Scenario: User can remove alternatives
-    When  I fill in "Name" with "The Personality Defect Test"
-    And   I add a criterion "What is your favorite color?"
-    And   I add an alternative "Red"
-    And   I remove the alternative "Red"
-    And   I add an alternative "No, blue!"
-    And   I press "Save Evaluation"
-    And   I go to the evaluation page for "The Personality Defect Test"
-    Then  I should not see "Red"
+    Then  the evaluation should exist with name: "The Personality Defect Test"
+    And   a criterion should not exist with prompt: "What is your favorite color?"
+    And   an alternative should not exist with label: "Red"
+    And   an alternative should not exist with label: "No, blue!"

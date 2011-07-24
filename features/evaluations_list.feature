@@ -31,17 +31,13 @@ Feature: User can list evaluations
     Then  I should be on the new evaluation page
 
   Scenario: User can navigate to view an evaluation
-    Given the following evaluations exist:
-      | name                             |
-      | The Personality Defect Test      |
+    Given an evaluation exists with name: "The Personality Defect Test"
     When  I am on the evaluations page
     And   I follow "The Personality Defect Test"
-    Then  I should be on the evaluation page for "The Personality Defect Test"
+    Then  I should be on the evaluation's page
 
   Scenario: User can navigate to edit an evaluation
-    Given the following evaluations exist:
-      | name                        |
-      | The Personality Defect Test |
+    Given an evaluation exists with name: "The Personality Defect Test"
     When  I am on the evaluations page
     And   I follow "Edit Evaluation"
-    Then  I should be on the edit evaluation page for "The Personality Defect Test"
+    Then  I should be on the evaluation's edit page

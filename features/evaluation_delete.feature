@@ -10,4 +10,4 @@ Feature: User can delete evaluations
     And   I am on the evaluations page
     When  I follow "Delete Evaluation"
     Then  I should see "Evaluation deleted successfully"
-    And   I should not see "The Personality Defect Test"
+    And   an evaluation should not exist with name: "The Personality Defect Test"

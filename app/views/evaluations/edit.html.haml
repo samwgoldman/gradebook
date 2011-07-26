@@ -1,4 +1,3 @@
-%section[@evaluation]
-  %h1== Editing #{@evaluation.name}
+- provide :page_title, "Editing #{@evaluation.name}"
 
-  = render 'form'
+= render 'form'

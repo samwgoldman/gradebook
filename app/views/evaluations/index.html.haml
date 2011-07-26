@@ -1,20 +1,19 @@
-%section.evaluations
-  %h1 Evaluations
+- provide :page_title, 'Evaluations'
 
-  - if @evaluations.empty?
-    %p You have no evaluations.
-  - else
-    %table#evaluations
-      %thead
+- if @evaluations.empty?
+  %p You have no evaluations.
+- else
+  %table#evaluations
+    %thead
+      %tr
+        %td Name
+        %td Actions
+    %tbody
+      - @evaluations.each do |evaluation|
         %tr
-          %td Name
-          %td Actions
-      %tbody
-        - @evaluations.each do |evaluation|
-          %tr
-            %td= link_to evaluation.name, evaluation_path(evaluation)
-            %td
-              = link_to 'Edit Evaluation', edit_evaluation_path(evaluation)
-              = link_to 'Delete Evaluation', evaluation_path(evaluation), :method => :delete
+          %td= link_to evaluation.name, evaluation_path(evaluation)
+          %td
+            = link_to 'Edit Evaluation', edit_evaluation_path(evaluation)
+            = link_to 'Delete Evaluation', evaluation_path(evaluation), :method => :delete
 
-  = link_to 'Create an evaluation', new_evaluation_path
+= link_to 'Create an evaluation', new_evaluation_path

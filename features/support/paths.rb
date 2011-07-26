@@ -10,6 +10,10 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
+    when /^the registration page$/
+      new_user_registration_path
+    when /^the sign in page$/
+      new_user_session_path
 
     # the following are examples using path_to_pickle
 

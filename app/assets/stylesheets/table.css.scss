@@ -1,0 +1,32 @@
+table.list {
+  margin: 1em 0;
+  border-spacing: 0;
+}
+
+table.list caption {
+  display: none;
+}
+
+table.list td, table.list th {
+  padding: .125em 1em;
+}
+
+table.list thead th {
+  text-align: left;
+  border-bottom: 1px solid #CCC;
+}
+
+table.list tbody td {
+  border-bottom: 1px solid #EEE;
+}
+
+table.list tbody td.edit, table.list tbody td.delete {
+  text-align: center;
+}
+
+table.list a.edit, table.list a.delete {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: none;
+}

@@ -3,17 +3,13 @@
 - if @evaluations.empty?
   %p You have no evaluations.
 - else
-  %table#evaluations
-    %thead
-      %tr
-        %td Name
-        %td Actions
-    %tbody
-      - @evaluations.each do |evaluation|
-        %tr
-          %td= link_to evaluation.name, evaluation_path(evaluation)
-          %td
-            = link_to 'Edit Evaluation', edit_evaluation_path(evaluation)
-            = link_to 'Delete Evaluation', evaluation_path(evaluation), :method => :delete
+  = table_for Evaluation, @evaluations do |table|
+    = table.head :name, :created_at, :updated_at, :edit, :delete
+    = table.body do |row|
+      = row.cell link_to(row.record.name, row.record)
+      = row.cell l row.record.created_at, :format => :long
+      = row.cell l row.record.updated_at, :format => :long
+      = row.cell edit_link_to(row.record), :class => 'edit'
+      = row.cell delete_link_to(row.record), :class => 'delete'
 
 = link_to 'Create an evaluation', new_evaluation_path

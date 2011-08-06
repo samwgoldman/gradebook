@@ -1,13 +1,12 @@
 = nested_form_for @evaluation do |f|
-  %p
+  %fieldset
     = f.label :name
     = f.text_field :name
 
-  .criteria
+  %fieldset.criteria
     = f.fields_for :criteria
     = f.link_to_add 'Add Criterion', :criteria
 
-  %p
-    = f.submit 'Save Evaluation'
-    or
-    = link_to 'Cancel', evaluations_path
+  = f.submit 'Save Evaluation'
+  %span.or or
+  = link_to 'Cancel', evaluations_path

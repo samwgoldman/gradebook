@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.0.rc4'
 gem 'inherited_resources'
 gem 'nested_form', :git => 'https://github.com/ryanb/nested_form'
+gem 'table_for', :git => 'https://github.com/ramhoj/table_for'
 gem 'devise'
 
 # Bundle edge Rails instead:

@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/ramhoj/table_for
+  revision: 9eb4a0c8883d427c9b72193529fee403b5cf6f92
+  specs:
+    table_for (0.0.5)
+      rails (~> 3.0)
+
+GIT
   remote: https://github.com/ryanb/nested_form
   revision: 57f32788f1952bcd633057b4b56b69b51df17610
   specs:
@@ -235,4 +242,5 @@ DEPENDENCIES
   sass-rails (~> 3.1.0.rc)
   spork
   sqlite3
+  table_for!
   uglifier

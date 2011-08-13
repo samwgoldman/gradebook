@@ -65,13 +65,13 @@ table, tbody, tr, td	{
 
 
 
-	/* begin header type */	/* 4 - modern sans a */
+	/* begin header type */	/* 1 - humanist sans a */
 
 h1	{
-	font-family:	Myriad Web, Arial, Helvetica, sans-serif;
-	font-size-adjust:	.48;
+	font-family:	Tahoma, Verdana, Myriad Web, Syntax, sans-serif;
+	font-size-adjust:	.53;
 	font-size:	2em;
-	font-weight:	700;
+	font-weight:	500;
 	font-style:	normal;
 	text-decoration:	none;
 	word-spacing:	normal;
@@ -80,8 +80,8 @@ h1	{
 	}
 
 h2	{
-	font-family:	Myriad Web, Arial, Helvetica, sans-serif;
-	font-size-adjust:	.48;
+	font-family:	Tahoma, Verdana, Myriad Web, Syntax, sans-serif;
+	font-size-adjust:	.53;
 	font-size:	1.75em;
 	font-weight:	500;
 	font-style:	normal;
@@ -92,10 +92,10 @@ h2	{
 	}
 
 h3	{
-	font-family:	Myriad Web, Arial, Helvetica, sans-serif;
-	font-size-adjust:	.48;
+	font-family:	Tahoma, Verdana, Myriad Web, Syntax, sans-serif;
+	font-size-adjust:	.53;
 	font-size:	1.58em;
-	font-weight:	500;
+	font-weight:	600;
 	font-style:	normal;
 	text-decoration:	none;
 	word-spacing:	normal;
@@ -104,11 +104,11 @@ h3	{
 	}
 
 h4	{
-	font-family:	Myriad Web, Arial, Helvetica, sans-serif;
-	font-size-adjust:	.48;
+	font-family:	Tahoma, Verdana, Myriad Web, Syntax, sans-serif;
+	font-size-adjust:	.53;
 	font-size:	1.33em;
-	font-weight:	500;
-	font-style:	oblique;
+	font-weight:	600;
+	font-style:	normal;
 	text-decoration:	none;
 	word-spacing:	normal;
 	letter-spacing:	normal;
@@ -116,10 +116,10 @@ h4	{
 	}
 
 h5, dt	{
-	font-family:	Myriad Web, Arial, Helvetica, sans-serif;
-	font-size-adjust:	.48;
+	font-family:	Tahoma, Verdana, Myriad Web, Syntax, sans-serif;
+	font-size-adjust:	.53;
 	font-size:	1.17em;
-	font-weight:	500;
+	font-weight:	600;
 	font-style:	normal;
 	text-decoration:	none;
 	word-spacing:	normal;
@@ -128,10 +128,10 @@ h5, dt	{
 	}
 
 h6	{
-	font-family:	Myriad Web, Arial, Helvetica, sans-serif;
-	font-size-adjust:	.48;
+	font-family:	Tahoma, Verdana, Myriad Web, Syntax, sans-serif;
+	font-size-adjust:	.53;
 	font-size:	1em;
-	font-weight:	500;
+	font-weight:	700;
 	font-style:	normal;
 	text-decoration:	none;
 	word-spacing:	normal;
@@ -144,8 +144,8 @@ tfoot, thead	{
 	word-spacing:	normal;
 	letter-spacing:	normal;
 	text-transform:	none;
-	font-family:	Myriad Web, Arial, Helvetica, sans-serif;
-	font-size-adjust:	.48;
+	font-family:	Verdana, Myriad Web, Syntax, sans-serif;
+	font-size-adjust:	.53;
 	}
 
 th	{
@@ -155,12 +155,12 @@ th	{
 	word-spacing:	normal;
 	letter-spacing:	normal;
 	text-transform:	none;
-	font-family:	Myriad Web, Arial, Helvetica, sans-serif;
-	font-size-adjust:	.48;
+	font-family:	Verdana, Myriad Web, Syntax, sans-serif;
+	font-size-adjust:	.53;
 	}
 
 hr	{
-	visibility:	visible;
+	visibility:	hidden;
 	}
 
 	/* end header type */
@@ -168,7 +168,7 @@ hr	{
 
 
 
-	/* begin affordances */	/* 4 - swiss a */
+	/* begin affordances */	/* 1 - blue orange */
 
 a, address, blockquote, body, cite, code, dd, del, dfn,
 div, dl, dt, em, form, h1, h2, h3, h4, h5, h6, iframe, img, kbd,
@@ -179,7 +179,7 @@ abbr, acronym, bdo, button, fieldset, ins, label	{
 	letter-spacing:	normal;
 	text-transform:	none;
 	text-decoration:	none;
-	border-color:	black;
+	border-color:	#036;
 	border-style:	none;
 	}
 
@@ -207,7 +207,7 @@ em strong, strong em	{
 	font-style:	normal;
 	font-weight:	bolder;
 	background:	white;
-	color:	red;
+	color:	black;
 	}
 
 b	{
@@ -222,8 +222,8 @@ i	{
 	text-transform:	none;
 	font-style:	normal;
 	font-weight:	bolder;
-	background:	white;
-	color:	red;
+	background:	yellow;
+	color:	black;
 	}
 
 del	{
@@ -232,7 +232,7 @@ del	{
 	}
 
 ins	{
-	text-decoration:	underline;
+	text-decoration:	none;
 	background:	yellow;
 	}
 
@@ -251,12 +251,12 @@ acronym	{
 	}
 
 h1, h2, h3, h4, h5, h6, dt, th, thead, tfoot	{
-	color:	black;
+	color:	#036;
 	background:	white;
 	}
 
 hr	{
-	color:	black;
+	color:	#036;
 	}
 
 #colophon	{
@@ -274,35 +274,35 @@ col, colgroup, table, tbody, td, tr	{
 a:link	{
 	text-decoration:	none;
 	font-weight:	bold;
-	color:	#C00;
-	background:	#ffc;
+	color:	#F30;
+	background:	white;
 	}
 
 a:visited	{
 	text-decoration:	none;
 	font-weight:	bold;
-	color:	#999;
-	background:	#ffc;
+	color:	#996;
+	background:	white;
 	}
 
 a:active	{
 	text-decoration:	none;
 	font-weight:	bold;
-	color:	#F00;
-	background:	#FC0;
+	color:	#F30;
+	background:	#FF0;
 	}
 
 a:hover	{
 	text-decoration:	none;
-	color:	#C00;
-	background:	#FC0;
+	color:	#F30;
+	background:	white;
 	}
 
 a.offsite	{
 	text-decoration:	none;
 	font-weight:	normal;
-	color:	#C00;
-	background:	#ffc;
+	color:	#C30;
+	background:	white;
 	}
 
 	/* end affordances */
@@ -792,12 +792,12 @@ caption	{
 
 
 
-	/* begin body box */	/* 6 - 'twelvths symmetric' */
+	/* begin body box */	/* 1 - 'em-based symmetric a' */
 
 body	{
 	margin-top:	1.58em;
-	margin-left:	8%;
-	margin-right:	5%;
+	margin-left:	1.58em;
+	margin-right:	1ex;
 	margin-bottom:	1.58em;
 	padding-top:	0;
 	padding-left:	0;

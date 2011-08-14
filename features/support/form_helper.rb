@@ -10,10 +10,16 @@ module FormHelper
     ".//input[#{header} and #{preceding_cells} = #{preceding_headers}]"
   end
 
-  def nested_fields(type)
-    type_node = "node()[#{css_class(type)}]"
-    ancestor_fields_of_type = "ancestor::node()[#{css_class('fields')} and ancestor::#{type_node}]"
-    ".//#{type_node}//node()[#{css_class('fields')} and not(#{ancestor_fields_of_type})]"
+  def fields(root, *association_chain)
+    root = model_form(root.singularize)
+    association_chain = association_chain.map do |association|
+      "node()[#{css_class(association.singularize)} and #{css_class('fields')}]"
+    end
+    ".//" + association_chain.unshift(root).join('//')
+  end
+
+  def model_form(model_name)
+    "form[#{css_class('edit_' + model_name)} or #{css_class('new_' + model_name)}]"
   end
 
   def css_class(name)

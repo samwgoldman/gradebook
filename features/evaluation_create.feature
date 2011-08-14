@@ -14,7 +14,7 @@ Feature: User can create an evaluation
     Then  I should be on the evaluations page
     And   I should not see "Evaluation saved successfully"
 
-  Scenario: User is notified of failed update
+  Scenario: User is notified of failed create
     When  I press "Save Evaluation"
     Then  I should see "Evaluation could not be saved due to errors."
 
@@ -47,3 +47,12 @@ Feature: User can create an evaluation
     And   a criterion should not exist with prompt: "What is your favorite color?"
     And   an alternative should not exist with label: "Red"
     And   an alternative should not exist with label: "No, blue!"
+
+  @javascript
+  Scenario: User is informed why create failed
+    When  I add a criterion ""
+    And   I add an alternative ""
+    And   I press "Save Evaluation"
+    Then  I am told evaluation name "can't be blank"
+    And   I am told evaluation criteria prompts "can't be blank"
+    And   I am told evaluation criteria alternatives labels "can't be blank"

@@ -1,6 +1,6 @@
 module EvaluationHelper
   def criteria_fields(context = page)
-    context.all(:xpath, nested_fields('criteria'))
+    context.all(:xpath, fields('evaluation', 'criteria'))
   end
 
   def criterion_fields(prompt)
@@ -10,7 +10,7 @@ module EvaluationHelper
   end
 
   def alternatives_fields(context = page)
-    context.all(:xpath, nested_fields('alternatives'))
+    context.all(:xpath, fields('evaluation', 'criteria', 'alternatives'))
   end
 
   def alternative_fields(label)

@@ -8,12 +8,24 @@ When /^I remove the criterion "([^"]*)"$/ do |prompt|
 end
 
 When /^I add an alternative "([^"]*)"$/ do |label|
-  criterion_fields = criteria_fields.last
-  criterion_fields.click_link 'Add Alternative'
-  alternative_fields = alternatives_fields(criterion_fields).last
-  alternative_fields.find(:xpath, tabular_field('Label')).set(label)
+  criteria_fields.last.click_link 'Add Alternative'
+  alternatives_fields.last.find(:xpath, tabular_field('Label')).set(label)
 end
 
 When /^I remove the alternative "([^"]*)"$/ do |label|
   alternative_fields(label).click_link 'Remove Alternative'
+end
+
+Then /^I am told (\w+(?: \w+)*) "([^"]*)"$/ do |model_or_association_chain, error|
+  context = model_or_association_chain.split
+  attribute = context.pop.singularize
+  all(:xpath, fields(*context)).each do |fields|
+    cell = fields.find(:xpath, ".//input[#{ends_with('@id', attribute)}]/ancestor::td[1]")
+    cell.should have_content(error)
+  end.should_not be_empty
+end
+
+def ends_with(target, substring)
+  length = substring.length
+  "\"#{substring}\" = substring(#{target}, string-length(#{target}) - #{length} + 1)"
 end

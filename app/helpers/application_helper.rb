@@ -1,6 +1,6 @@
 module ApplicationHelper
   def page_wrapper(&block)
-    content_tag :section, capture(&block)
+    content_tag :section, capture(&block), :class => resource_class.name.downcase
   end
 
   def flashes
@@ -20,6 +20,14 @@ module ApplicationHelper
   def delete_link_to(resource)
     link_to polymorphic_path(resource), :method => :delete, :class => 'delete' do
       image_tag 'delete.png', :alt => "Delete #{resource.class.name.titleize}"
+    end
+  end
+
+  def errors_for(resource, attribute)
+    content_tag :ul, :class => 'errors' do
+      resource.errors[attribute].map do |error|
+        content_tag :li, error
+      end.join.html_safe
     end
   end
 end

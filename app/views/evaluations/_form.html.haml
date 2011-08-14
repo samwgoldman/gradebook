@@ -1,43 +1,50 @@
 = nested_form_for @evaluation do |f|
-  = f.label :name
-  = f.text_field :name
-
-  %table.list.criteria
-    %thead
+  %table.resource.evaluation
+    %tbody
       %tr
-        %th Prompt
-        %th Delete
-        %th Alternatives
-    = f.fields_for :criteria, :collection_tag => 'tbody', :fields_tag => 'tr' do |f|
-      %td
-        = f.label :prompt
-        = f.text_field :prompt
-      %td.delete
-        = f.hidden_field :id
-        = f.link_to_remove do
-          = image_tag 'delete.png', :alt => 'Remove Criterion'
-      %td.table
-        %table.list.alternatives
-          %thead
-            %tr
-              %th Label
-              %th Delete
-          = f.fields_for :alternatives, :collection_tag => 'tbody', :fields_tag => 'tr' do |f|
-            %td
-              = f.label :label
-              = f.text_field :label
-            %td.delete
-              = f.hidden_field :id
-              = f.link_to_remove do
-                = image_tag 'delete.png', :alt => 'Remove Alternative'
-          %tfoot
-            %tr
-              %td{'colspan' => 2}
-                = f.link_to_add 'Add Alternative', :alternatives
-    %tfoot
+        %th= f.label :name
+        %td
+          = f.text_field :name
+          = errors_for @evaluation, :name
       %tr
-        %td{'colspan' => 3}
-          = f.link_to_add 'Add Criterion', :criteria
+        %th= f.label :criteria
+        %td.table
+          %table.list.criteria
+            %thead
+              %tr
+                %th Prompt
+                %th Delete
+                %th Alternatives
+            = f.fields_for :criteria, :collection_tag => 'tbody', :fields_tag => 'tr' do |f|
+              %td
+                = f.text_field :prompt
+                = errors_for f.object, :prompt
+              %td.delete
+                = f.hidden_field :id
+                = f.link_to_remove do
+                  = image_tag 'delete.png', :alt => 'Remove Criterion'
+              %td.table
+                %table.list.alternatives
+                  %thead
+                    %tr
+                      %th Label
+                      %th Delete
+                  = f.fields_for :alternatives, :collection_tag => 'tbody', :fields_tag => 'tr' do |f|
+                    %td
+                      = f.text_field :label
+                      = errors_for f.object, :label
+                    %td.delete
+                      = f.hidden_field :id
+                      = f.link_to_remove do
+                        = image_tag 'delete.png', :alt => 'Remove Alternative'
+                  %tfoot
+                    %tr
+                      %td{'colspan' => 2}
+                        = f.link_to_add 'Add Alternative', :alternatives
+            %tfoot
+              %tr
+                %td{'colspan' => 3}
+                  = f.link_to_add 'Add Criterion', :criteria
 
   = f.submit 'Save Evaluation'
   %span.or or

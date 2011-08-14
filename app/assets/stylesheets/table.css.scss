@@ -1,43 +1,35 @@
-table.list {
+table.list, table.resource {
   margin: 1em 0;
   border-spacing: 0;
 }
 
-table.list table.list {
+table table.list, table table.resource {
   margin: 0;
-  border-left: 1px solid #EEE;
-  border-right: 1px solid #EEE;
 }
 
-table.list td.table:last-child table.list {
-  border-right: none;
-}
-
-table.list caption {
+table.list caption, table.resource caption {
   display: none;
 }
 
-table.list label {
-  display: none;
-}
-
-table.list td, table.list th {
+table.list td, table.list th, table.resource td, table.resource th {
   padding: .25em 1em;
   vertical-align: top;
+}
+
+table.resource tbody th {
+  text-align: left;
+  border-right: 1px solid #CCC;
+  border-bottom: none;
 }
 
 table.list thead th {
   text-align: left;
   border-bottom: 1px solid #CCC;
+  border-right: none;
 }
 
-table.list tbody td {
-  border-bottom: 1px solid #EEE;
-}
-
-table.list tbody td.table {
+table.list tbody td.table, table.resource tbody td.table {
   padding: 0;
-  border-bottom: none;
 }
 
 table.list tbody td.edit, table.list tbody td.delete {
@@ -49,4 +41,26 @@ table.list a.edit, table.list a.delete, table.list a.remove_nested_fields {
   width: 16px;
   height: 16px;
   background: none;
+}
+
+table a.add_nested_fields {
+  color: #996;
+}
+
+table.list input, table.resource input {
+  color: #666;
+  margin: 0;
+}
+
+ul.errors {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.errors li {
+  display: inline;
+  margin: 0;
+  color: #FF6347;
 }

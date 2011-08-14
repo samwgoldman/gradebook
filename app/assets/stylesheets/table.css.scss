@@ -3,12 +3,27 @@ table.list {
   border-spacing: 0;
 }
 
+table.list table.list {
+  margin: 0;
+  border-left: 1px solid #EEE;
+  border-right: 1px solid #EEE;
+}
+
+table.list td.table:last-child table.list {
+  border-right: none;
+}
+
 table.list caption {
   display: none;
 }
 
+table.list label {
+  display: none;
+}
+
 table.list td, table.list th {
-  padding: .125em 1em;
+  padding: .25em 1em;
+  vertical-align: top;
 }
 
 table.list thead th {
@@ -20,11 +35,16 @@ table.list tbody td {
   border-bottom: 1px solid #EEE;
 }
 
+table.list tbody td.table {
+  padding: 0;
+  border-bottom: none;
+}
+
 table.list tbody td.edit, table.list tbody td.delete {
   text-align: center;
 }
 
-table.list a.edit, table.list a.delete {
+table.list a.edit, table.list a.delete, table.list a.remove_nested_fields {
   display: inline-block;
   width: 16px;
   height: 16px;

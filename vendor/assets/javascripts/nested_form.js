@@ -1,8 +1,9 @@
 jQuery(function($) {
   $('form a.add_nested_fields').live('click', function() {
     // Setup
-    var assoc   = $(this).attr('data-association');            // Name of child
-    var content = $('#' + assoc + '_fields_blueprint').html(); // Fields template
+    var assoc      = $(this).attr('data-association');            // Name of child
+    var collection = $(this).attr('data-collection');
+    var content    = $('#' + assoc + '_fields_blueprint .fields').parent().html(); // Fields template
 
     // Make the context correct by replacing new_<parents> with the generated ID
     // of each of the parent objects
@@ -16,7 +17,7 @@ jQuery(function($) {
       var parent_names = context.match(/[a-z_]+_attributes/g) || [];
       var parent_ids   = context.match(/(new_)?[0-9]+/g) || [];
 
-      for(i = 0; i < parent_names.length; i++) {
+      for(var i = 0; i < parent_names.length; i++) {
         if(parent_ids[i]) {
           content = content.replace(
             new RegExp('(_' + parent_names[i] + ')_.+?_', 'g'),
@@ -34,8 +35,25 @@ jQuery(function($) {
     var new_id  = new Date().getTime();
     content     = content.replace(regexp, "new_" + new_id);
 
-    $(this).before(content);
-    $(this).closest("form").trigger('nested:fieldAdded');
+    content = content.replace(/(collection\d+)/g, '$1' + new_id)
+
+    var field = $(content);
+
+    field.find('.add_nested_fields').each(function() {
+      if ($(this).attr('data-collection')) {
+        $(this).attr('data-collection', $(this).attr('data-collection') + new_id)
+      }
+    });
+
+
+    if (collection) {
+      $('#collection' + collection).append(field)
+    }
+    else {
+      $(field).insertBefore(this);
+    }
+
+    $(this).closest("form").trigger({type: 'nested:fieldAdded', field: field});
     return false;
   });
 

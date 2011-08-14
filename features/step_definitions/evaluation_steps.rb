@@ -1,26 +1,19 @@
 When /^I add a criterion "([^"]*)"$/ do |prompt|
   click_link 'Add Criterion'
-  criteria = page.all('.criteria > .fields')
-  criteria.last.fill_in 'Prompt', :with => prompt
+  criteria_fields.last.find(:xpath, tabular_field('Prompt')).set(prompt)
 end
 
 When /^I remove the criterion "([^"]*)"$/ do |prompt|
-  input = page.all(:xpath, XPath::HTML.field('Prompt')).find { |input| input.value == prompt }
-  assert input, "Could not find criterion with prompt: #{prompt}"
-  fields = input.find(:xpath, 'ancestor::node()[contains(@class, "fields")]')
-  fields.click_link 'Remove Criterion'
+  criterion_fields(prompt).click_link 'Remove Criterion'
 end
 
 When /^I add an alternative "([^"]*)"$/ do |label|
-  criteria = page.all('.criteria > .fields')
-  criteria.last.click_link 'Add Alternative'
-  alternatives = criteria.last.all('.alternatives > .fields')
-  alternatives.last.fill_in 'Label', :with => label
+  criterion_fields = criteria_fields.last
+  criterion_fields.click_link 'Add Alternative'
+  alternative_fields = alternatives_fields(criterion_fields).last
+  alternative_fields.find(:xpath, tabular_field('Label')).set(label)
 end
 
 When /^I remove the alternative "([^"]*)"$/ do |label|
-  input = page.all(:xpath, XPath::HTML.field('Label')).find { |input| input.value == label }
-  assert input, "Could not find alternative with label: #{label}"
-  fields = input.find(:xpath, 'ancestor::node()[contains(@class, "fields")]')
-  fields.click_link 'Remove Alternative'
+  alternative_fields(label).click_link 'Remove Alternative'
 end

@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc4'
+gem 'rails', '3.1.0.rc5'
 gem 'inherited_resources'
-gem 'nested_form', :git => 'https://github.com/ryanb/nested_form'
+gem 'nested_form', :git => 'https://github.com/samwgoldman/nested_form'
 gem 'table_for', :git => 'https://github.com/ramhoj/table_for'
 gem 'devise'
 
@@ -13,7 +13,7 @@ gem 'sqlite3'
 
 # Asset template engines
 gem 'haml-rails'
-gem 'sass-rails', "~> 3.1.0.rc"
+gem 'sass-rails'
 gem 'coffee-script'
 gem 'uglifier'
 
@@ -35,6 +35,6 @@ group :test, :development do
   gem 'database_cleaner'
   gem 'spork'
   gem 'cover_me'
-  gem 'remarkable_activerecord', '~> 4.0.0.alpha2'
+  gem 'remarkable_activerecord', '~> 4.0.0.alpha4'
   gem 'pickle'
 end

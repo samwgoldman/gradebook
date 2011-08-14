@@ -1,9 +1,0 @@
-%fieldset.basic
-  = f.label :prompt
-  = f.text_field :prompt
-
-%fieldset.alternatives
-  = f.fields_for :alternatives
-  = f.link_to_add 'Add Alternative', :alternatives
-
-= f.link_to_remove 'Remove Criterion'

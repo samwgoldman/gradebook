@@ -56,3 +56,8 @@ Feature: User can create an evaluation
     Then  I am told evaluation name "can't be blank"
     And   I am told evaluation criteria prompts "can't be blank"
     And   I am told evaluation criteria alternatives labels "can't be blank"
+
+  @javascript
+  Scenario: A blank criterion and alternative field is created
+    Then  I should see fields for evaluation criteria
+    And   I should see fields for evaluation criteria alternatives

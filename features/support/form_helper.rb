@@ -12,14 +12,16 @@ module FormHelper
 
   def fields(root, *association_chain)
     root = model_form(root.singularize)
-    association_chain = association_chain.map do |association|
-      "node()[#{css_class(association.singularize)} and #{css_class('fields')}]"
-    end
+    association_chain = association_chain.map { |association_name| nested_fields(association_name) }
     ".//" + association_chain.unshift(root).join('//')
   end
 
   def model_form(model_name)
     "form[#{css_class('edit_' + model_name)} or #{css_class('new_' + model_name)}]"
+  end
+
+  def nested_fields(association_name)
+    "node()[#{css_class(association_name.singularize)} and #{css_class('fields')}]"
   end
 
   def css_class(name)

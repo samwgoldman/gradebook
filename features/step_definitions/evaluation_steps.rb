@@ -1,5 +1,5 @@
 When /^I add a criterion "([^"]*)"$/ do |prompt|
-  click_link 'Add Criterion'
+  click_link 'Add Criterion' unless last_criterion_blank
   criteria_fields.last.find(:xpath, tabular_field('Prompt')).set(prompt)
 end
 
@@ -8,7 +8,7 @@ When /^I remove the criterion "([^"]*)"$/ do |prompt|
 end
 
 When /^I add an alternative "([^"]*)"$/ do |label|
-  criteria_fields.last.click_link 'Add Alternative'
+  criteria_fields.last.click_link 'Add Alternative' unless last_alternative_blank
   alternatives_fields.last.find(:xpath, tabular_field('Label')).set(label)
 end
 
@@ -23,6 +23,11 @@ Then /^I am told (\w+(?: \w+)*) "([^"]*)"$/ do |model_or_association_chain, erro
     cell = fields.find(:xpath, ".//input[#{ends_with('@id', attribute)}]/ancestor::td[1]")
     cell.should have_content(error)
   end.should_not be_empty
+end
+
+Then /^I should see fields for (\w+(?: \w+)*)$/ do |model_or_association_chain|
+  context = model_or_association_chain.split
+  all(:xpath, fields(*context)).length.should eq(1)
 end
 
 def ends_with(target, substring)

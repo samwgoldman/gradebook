@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110725072620) do
+ActiveRecord::Schema.define(:version => 20110815194009) do
 
   create_table "alternatives", :force => true do |t|
     t.integer  "criterion_id", :null => false
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20110725072620) do
     t.string   "prompt",        :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "order"
   end
 
   add_index "criteria", ["evaluation_id"], :name => "index_criteria_on_evaluation_id"

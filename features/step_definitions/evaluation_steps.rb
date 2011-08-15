@@ -16,18 +16,18 @@ When /^I remove the alternative "([^"]*)"$/ do |label|
   alternative_fields(label).click_link 'Remove Alternative'
 end
 
-Then /^I am told (\w+(?: \w+)*) "([^"]*)"$/ do |model_or_association_chain, error|
-  context = model_or_association_chain.split
-  attribute = context.pop.singularize
-  all(:xpath, fields(*context)).each do |fields|
+Then /^I am told (\w+(?: \w+)*) "([^"]*)"$/ do |association_chain, error|
+  association_chain = association_chain.split
+  attribute = association_chain.pop.singularize
+  all(:xpath, fields(*association_chain)).each do |fields|
     cell = fields.find(:xpath, ".//input[#{ends_with('@id', attribute)}]/ancestor::td[1]")
     cell.should have_content(error)
   end.should_not be_empty
 end
 
-Then /^I should see fields for (\w+(?: \w+)*)$/ do |model_or_association_chain|
-  context = model_or_association_chain.split
-  all(:xpath, fields(*context)).length.should eq(1)
+Then /^I should see fields for (\w+(?: \w+)*)$/ do |association_chain|
+  association_chain = association_chain.split
+  all(:xpath, fields(*association_chain)).length.should eq(1)
 end
 
 def ends_with(target, substring)

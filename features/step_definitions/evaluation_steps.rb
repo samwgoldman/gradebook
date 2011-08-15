@@ -30,6 +30,22 @@ Then /^I should see fields for (\w+(?: \w+)*)$/ do |association_chain|
   all(:xpath, fields(*association_chain)).length.should eq(1)
 end
 
+Then /^I should not see delete links for (\w+(?: \w+)*)$/ do |association_chain|
+  association_chain = association_chain.split
+  all(:xpath, fields(*association_chain)).each do |fields|
+    link_locator = 'Remove ' + association_chain.last.singularize.titleize
+    fields.find_link(link_locator).should_not be_visible
+  end
+end
+
+Then /^I should see delete links for (\w+(?: \w+)*)$/ do |association_chain|
+  association_chain = association_chain.split
+  all(:xpath, fields(*association_chain)).each do |fields|
+    link_locator = 'Remove ' + association_chain.last.singularize.titleize
+    fields.find_link(link_locator).should be_visible
+  end
+end
+
 def ends_with(target, substring)
   length = substring.length
   "\"#{substring}\" = substring(#{target}, string-length(#{target}) - #{length} + 1)"

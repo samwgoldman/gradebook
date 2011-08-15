@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/samwgoldman/nested_form
-  revision: 48ad4cfdf092701f7efcc6412d1fb58b0937c52b
+  revision: 36169f5ecf01952029d4ad8eff95f0816da29097
   specs:
     nested_form (0.1.1)
 

@@ -38,6 +38,8 @@ Feature: User can create an evaluation
   @javascript
   Scenario: User can remove criteria
     When  I fill in "Name" with "The Personality Defect Test"
+    And   I add a criterion "What is your quest?"
+    And   I add an alternative "To seek the grail"
     And   I add a criterion "What is your favorite color?"
     And   I add an alternative "Red"
     And   I add an alternative "No, blue!"
@@ -61,3 +63,18 @@ Feature: User can create an evaluation
   Scenario: A blank criterion and alternative field is created
     Then  I should see fields for evaluation criteria
     And   I should see fields for evaluation criteria alternatives
+
+  @javascript
+  Scenario: Last criterion or alternative field can not be removed
+    When  I add a criterion "What is your quest?"
+    And   I add an alternative "To seek the grail"
+    Then  I should not see delete links for evaluation criteria
+    And   I should not see delete links for evaluation criteria alternatives
+    When  I add an alternative "Not sure"
+    Then  I should see delete links for evaluation criteria alternatives
+    When  I add a criterion "What is your favorite color?"
+    Then  I should see delete links for evaluation criteria
+    When  I remove the alternative "Not sure"
+    Then  I should not see delete links for evaluation criteria alternatives
+    When  I remove the criterion "What is your quest?"
+    Then  I should not see delete links for evaluation criteria

@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(:version => 20110815200858) do
     t.string   "label",        :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "order"
+    t.integer  "position"
   end
 
   add_index "alternatives", ["criterion_id"], :name => "index_alternatives_on_criterion_id"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(:version => 20110815200858) do
     t.string   "prompt",        :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "order"
+    t.integer  "position"
   end
 
   add_index "criteria", ["evaluation_id"], :name => "index_criteria_on_evaluation_id"

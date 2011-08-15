@@ -5,13 +5,13 @@ end
 Factory.define(:criterion) do |f|
   f.association(:evaluation)
   f.sequence(:prompt) { |n| "Criterion #{n}" }
-  f.sequence(:order)
+  f.sequence(:position)
 end
 
 Factory.define(:alternative) do |f|
   f.association(:criterion)
   f.sequence(:label) { |n| "Alternative #{n}" }
-  f.sequence(:order)
+  f.sequence(:position)
 end
 
 Factory.define(:user) do |f|

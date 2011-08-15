@@ -12,14 +12,14 @@
           %table.list.criteria
             %thead
               %tr
-                %th Order
+                %th Position
                 %th Prompt
                 %th Delete
                 %th Alternatives
             = f.fields_for :criteria, :collection_tag => 'tbody', :fields_tag => 'tr' do |f|
               %td
-                = f.text_field :order, :size => 1
-                = errors_for f.object, :order
+                = f.text_field :position, :size => 1
+                = errors_for f.object, :position
               %td
                 = f.text_field :prompt
                 = errors_for f.object, :prompt
@@ -31,13 +31,13 @@
                 %table.list.alternatives
                   %thead
                     %tr
-                      %th Order
+                      %th Position
                       %th Label
                       %th Delete
                   = f.fields_for :alternatives, :collection_tag => 'tbody', :fields_tag => 'tr' do |f|
                     %td
-                      = f.text_field :order, :size => 1
-                      = errors_for f.object, :order
+                      = f.text_field :position, :size => 1
+                      = errors_for f.object, :position
                     %td
                       = f.text_field :label
                       = errors_for f.object, :label

@@ -6,5 +6,7 @@ class Criterion < ActiveRecord::Base
 
   validates :evaluation, :presence => true
   validates :prompt, :presence => true
-  validates :order, :presence => true, :uniqueness => {:scope => :evaluation_id}
+  validates :position, :presence => true, :uniqueness => {:scope => :evaluation_id}
+
+  default_scope order(:position)
 end

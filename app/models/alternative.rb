@@ -3,5 +3,5 @@ class Alternative < ActiveRecord::Base
 
   validates :criterion, :presence => true
   validates :label, :presence => true
-  validates :order, :presence => true, :uniqueness => {:scope => :criterion_id}
+  validates :position, :presence => true, :uniqueness => {:scope => :criterion_id}
 end

@@ -1,7 +1,7 @@
 When /^I add a criterion "([^"]*)"$/ do |prompt|
   click_link 'Add Criterion' unless last_criterion_blank
   criteria_fields.last.find(:xpath, tabular_field('Prompt')).set(prompt)
-  criteria_fields.last.find(:xpath, tabular_field('Order')).set(criteria_fields.count + 1)
+  criteria_fields.last.find(:xpath, tabular_field('Position')).set(criteria_fields.count)
 end
 
 When /^I remove the criterion "([^"]*)"$/ do |prompt|
@@ -10,8 +10,9 @@ end
 
 When /^I add an alternative "([^"]*)"$/ do |label|
   criteria_fields.last.click_link 'Add Alternative' unless last_alternative_blank
+  position = criteria_fields.last.all(:xpath, './/' + nested_fields('alternatives')).count
   alternatives_fields.last.find(:xpath, tabular_field('Label')).set(label)
-  alternatives_fields.last.find(:xpath, tabular_field('Order')).set(alternatives_fields(criteria_fields.last).count + 1)
+  alternatives_fields.last.find(:xpath, tabular_field('Position')).set(position)
 end
 
 When /^I remove the alternative "([^"]*)"$/ do |label|
@@ -46,6 +47,16 @@ Then /^I should see delete links for (\w+(?: \w+)*)$/ do |association_chain|
     link_locator = 'Remove ' + association_chain.last.singularize.titleize
     fields.find_link(link_locator).should be_visible
   end
+end
+
+Then /^The criterion "([^"]*)" should appear before "([^"]*)"$/ do |*prompts|
+  paths = prompts.map { |prompt| criterion_fields(prompt).path }
+  paths.should eq(paths.sort)
+end
+
+Then /^The alternative "([^"]*)" should appear before "([^"]*)"$/ do |*labels|
+  paths = labels.map { |label| alternative_fields(label).path }
+  paths.should eq(paths.sort)
 end
 
 def ends_with(target, substring)

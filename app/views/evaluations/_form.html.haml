@@ -31,9 +31,13 @@
                 %table.list.alternatives
                   %thead
                     %tr
+                      %th Order
                       %th Label
                       %th Delete
                   = f.fields_for :alternatives, :collection_tag => 'tbody', :fields_tag => 'tr' do |f|
+                    %td
+                      = f.text_field :order, :size => 1
+                      = errors_for f.object, :order
                     %td
                       = f.text_field :label
                       = errors_for f.object, :label

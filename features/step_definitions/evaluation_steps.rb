@@ -11,6 +11,7 @@ end
 When /^I add an alternative "([^"]*)"$/ do |label|
   criteria_fields.last.click_link 'Add Alternative' unless last_alternative_blank
   alternatives_fields.last.find(:xpath, tabular_field('Label')).set(label)
+  alternatives_fields.last.find(:xpath, tabular_field('Order')).set(alternatives_fields(criteria_fields.last).count + 1)
 end
 
 When /^I remove the alternative "([^"]*)"$/ do |label|

@@ -41,8 +41,10 @@ Feature: User can edit an evaluation
   @javascript
   Scenario: User can add criteria
     When  I add a criterion "What is your name?"
+    And   I add an alternative "None of your business."
     And   I press "Save Evaluation"
     Then  a criterion should exist with prompt: "What is your name?", evaluation: the evaluation
+    And   an alternative should exist with label: "None of your business.", criterion: the criterion
 
   @javascript
   Scenario: User can remove criteria

@@ -12,10 +12,14 @@
           %table.list.criteria
             %thead
               %tr
+                %th Order
                 %th Prompt
                 %th Delete
                 %th Alternatives
             = f.fields_for :criteria, :collection_tag => 'tbody', :fields_tag => 'tr' do |f|
+              %td
+                = f.text_field :order, :size => 1
+                = errors_for f.object, :order
               %td
                 = f.text_field :prompt
                 = errors_for f.object, :prompt

@@ -1,6 +1,7 @@
 When /^I add a criterion "([^"]*)"$/ do |prompt|
   click_link 'Add Criterion' unless last_criterion_blank
   criteria_fields.last.find(:xpath, tabular_field('Prompt')).set(prompt)
+  criteria_fields.last.find(:xpath, tabular_field('Order')).set(criteria_fields.count + 1)
 end
 
 When /^I remove the criterion "([^"]*)"$/ do |prompt|

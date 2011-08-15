@@ -43,4 +43,4 @@ $(document).ready ->
 
   switch criterion_fields().length
     when 0 then add_criteria()
-    when 1 then update_delete_links(criterion_fields()[0])
+    when 1 then update_delete_links(criterion_fields().get(0))

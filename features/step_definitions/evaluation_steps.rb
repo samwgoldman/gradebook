@@ -49,12 +49,12 @@ Then /^I should see delete links for (\w+(?: \w+)*)$/ do |association_chain|
   end
 end
 
-Then /^The criterion "([^"]*)" should appear before "([^"]*)"$/ do |*prompts|
+Then /^the criterion "([^"]*)" should appear before "([^"]*)"$/ do |*prompts|
   paths = prompts.map { |prompt| criterion_fields(prompt).path }
   paths.should eq(paths.sort)
 end
 
-Then /^The alternative "([^"]*)" should appear before "([^"]*)"$/ do |*labels|
+Then /^the alternative "([^"]*)" should appear before "([^"]*)"$/ do |*labels|
   paths = labels.map { |label| alternative_fields(label).path }
   paths.should eq(paths.sort)
 end

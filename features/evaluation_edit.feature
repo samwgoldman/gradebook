@@ -5,11 +5,11 @@ Feature: User can edit an evaluation
 
   Background:
     Given an evaluation exists with name: "The Personality Defect Test"
-    And   a criterion exists with prompt: "What is your quest?", position: 2, evaluation: the evaluation
-    And   a criterion exists with prompt: "What is your favorite color?", position: 1, evaluation: the evaluation
-    And   an alternative exists with label: "To seek the grail", position: 1, criterion: the 1st criterion
-    And   an alternative exists with label: "Red", position: 2, criterion: the 2nd criterion
-    And   an alternative exists with label: "Blue", position: 1, criterion: the 2nd criterion
+    And   a criterion exists with prompt: "What is your quest?", evaluation: the evaluation
+    And   a criterion exists with prompt: "What is your favorite color?", evaluation: the evaluation
+    And   an alternative exists with label: "To seek the grail", criterion: the 1st criterion
+    And   an alternative exists with label: "Red", criterion: the 2nd criterion
+    And   an alternative exists with label: "Blue", criterion: the 2nd criterion
     When  I am on the evaluation's edit page
 
   Scenario: User sees the header for the page
@@ -64,7 +64,3 @@ Feature: User can edit an evaluation
     When  I remove the alternative "Red"
     And   I press "Save Evaluation"
     Then  an alternative should not exist with label: "Red"
-
-  Scenario: Fields are rendered in correct order
-    Then  The criterion "What is your favorite color?" should appear before "What is your quest?"
-    And   The alternative "Red" should appear before "Blue"

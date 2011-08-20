@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.0.rc5'
+gem 'pg'
 gem 'inherited_resources'
 gem 'nested_form', :git => 'https://github.com/samwgoldman/nested_form'
 gem 'table_for', :git => 'https://github.com/ramhoj/table_for'

@@ -6,7 +6,17 @@ class Criterion < ActiveRecord::Base
 
   validates :evaluation, :presence => true
   validates :prompt, :presence => true
-  validates :position, :presence => true, :uniqueness => {:scope => :evaluation_id}
+  validates :position, :presence => true
+
+  validate :evaluation_position_unique
 
   default_scope order(:position)
+
+  private
+
+  def evaluation_position_unique
+    if evaluation
+      validate_uniqueness_of_in_memory(evaluation.criteria, :position, 'has already been taken')
+    end
+  end
 end

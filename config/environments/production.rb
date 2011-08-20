@@ -39,6 +39,11 @@ Gradebook::Application.configure do
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
 
+  # Use SQL instead of Active Record's schema dumper when creating the test database.
+  # This is necessary if your schema can't be completely dumped by the schema dumper,
+  # like if you have constraints or database-specific column types
+  config.active_record.schema_format = :sql
+
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
 

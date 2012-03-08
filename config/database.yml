@@ -8,6 +8,7 @@ development:
   username: gradebook
   password: 
   database: gradebook_development
+  host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -17,12 +18,14 @@ test: &test
   username: gradebook
   password: 
   database: gradebook_test
+  host: localhost
 
 production:
   adapter: postgresql
   username: gradebook
   password: 
   database: gradebook_test
+  host: localhost
 
 cucumber:
   <<: *test

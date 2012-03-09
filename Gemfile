@@ -36,6 +36,5 @@ group :test, :development do
   gem 'database_cleaner'
   gem 'spork'
   gem 'cover_me'
-  gem 'remarkable_activerecord', '~> 4.0.0.alpha4'
   gem 'pickle'
 end

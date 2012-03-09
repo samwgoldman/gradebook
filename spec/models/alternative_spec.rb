@@ -1,9 +1,6 @@
 require 'spec_helper'
 
 describe Alternative do
-  it { should belong_to(:criterion) }
-  it { should validate_presence_of(:criterion, :label, :position) }
-
   context 'when a alternative exists with the same position' do
     let (:criterion) { Factory.create(:criterion) }
     let (:alternative) { criterion.alternatives.build(Factory.attributes_for(:alternative, :position => 1)) }

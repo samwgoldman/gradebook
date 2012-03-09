@@ -5,7 +5,6 @@
 # files.
 
 require 'cover_me'
-require 'rubygems'
 require 'spork'
  
 Spork.prefork do

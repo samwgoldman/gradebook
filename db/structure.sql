@@ -36,8 +36,8 @@ CREATE TABLE alternatives (
     id integer NOT NULL,
     criterion_id integer NOT NULL,
     label character varying(255) NOT NULL,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
     "position" integer
 );
 
@@ -69,8 +69,8 @@ CREATE TABLE criteria (
     id integer NOT NULL,
     evaluation_id integer NOT NULL,
     prompt character varying(255) NOT NULL,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
     "position" integer
 );
 
@@ -101,8 +101,8 @@ ALTER SEQUENCE criteria_id_seq OWNED BY criteria.id;
 CREATE TABLE evaluations (
     id integer NOT NULL,
     name character varying(255) NOT NULL,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
 );
 
 
@@ -150,8 +150,8 @@ CREATE TABLE users (
     last_sign_in_at timestamp without time zone,
     current_sign_in_ip character varying(255),
     last_sign_in_ip character varying(255),
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
 );
 
 

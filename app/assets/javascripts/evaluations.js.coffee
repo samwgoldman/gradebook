@@ -36,11 +36,11 @@ $(document).ready ->
 
   evaluation_form.live "nested:fieldAdded", (event) ->
     add_alternative(event.field) if event.field.hasClass('criterion')
-    update_delete_links(event.field)
+    update_delete_links($(event.field))
 
   evaluation_form.live "nested:fieldRemoved", (event) ->
-    update_delete_links(event.field)
+    update_delete_links($(event.field))
 
   switch criterion_fields().length
     when 0 then add_criteria()
-    when 1 then update_delete_links(criterion_fields().get(0))
+    when 1 then update_delete_links(criterion_fields().eq(0))

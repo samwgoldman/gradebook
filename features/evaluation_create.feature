@@ -45,6 +45,7 @@ Feature: User can create an evaluation
     And   I add an alternative "No, blue!"
     And   I remove the criterion "What is your favorite color?"
     And   I press "Save Evaluation"
+    Then  I should see "Evaluation saved successfully."
     Then  the evaluation should exist with name: "The Personality Defect Test"
     And   a criterion should not exist with prompt: "What is your favorite color?"
     And   an alternative should not exist with label: "Red"

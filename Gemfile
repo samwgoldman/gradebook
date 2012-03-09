@@ -32,6 +32,7 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'cucumber-rails', :require => false
   gem 'capybara'
+  gem 'capybara-webkit'
   gem 'launchy'
   gem 'database_cleaner'
   gem 'spork'

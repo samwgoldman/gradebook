@@ -43,6 +43,7 @@ Feature: User can edit an evaluation
     When  I add a criterion "What is your name?"
     And   I add an alternative "None of your business."
     And   I press "Save Evaluation"
+    Then  I should see "Evaluation updated successfully"
     Then  a criterion should exist with prompt: "What is your name?", evaluation: the evaluation
     And   an alternative should exist with label: "None of your business.", criterion: the criterion
 
@@ -50,6 +51,7 @@ Feature: User can edit an evaluation
   Scenario: User can remove criteria
     When  I remove the criterion "What is your quest?"
     And   I press "Save Evaluation"
+    Then  I should see "Evaluation updated successfully"
     Then  a criterion should not exist with prompt: "What is your quest?"
     And   an alternative should not exist with label: "To seek the grail"
 
@@ -57,10 +59,12 @@ Feature: User can edit an evaluation
   Scenario: User can add alternatives
     When  I add an alternative "Purple"
     And   I press "Save Evaluation"
+    Then  I should see "Evaluation updated successfully"
     Then  an alternative should exist with label: "Purple"
 
   @javascript
   Scenario: User can remove alternatives
     When  I remove the alternative "Red"
     And   I press "Save Evaluation"
+    Then  I should see "Evaluation updated successfully"
     Then  an alternative should not exist with label: "Red"

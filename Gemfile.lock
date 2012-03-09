@@ -53,6 +53,9 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 0.1.4)
+    capybara-webkit (0.10.1)
+      capybara (>= 1.0.0, < 1.2)
+      json
     childprocess (0.3.1)
       ffi (~> 1.0.6)
     coffee-script (2.2.0)
@@ -216,6 +219,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
+  capybara-webkit
   coffee-script
   cover_me
   cucumber-rails
